@@ -1,6 +1,6 @@
 {
   "FileVersion": 3,
-  "EngineAssociation": "5.4",
+  "EngineAssociation": "5.3",
   "Category": "Games",
   "Description": "Cooperative underground survival horror prototype centered on synchronized breathing.",
   "Modules": [
