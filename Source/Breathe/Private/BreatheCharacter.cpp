@@ -1,9 +1,11 @@
 #include "BreatheCharacter.h"
 #include "BreathingComponent.h"
+#include "Camera/CameraComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "InputActionValue.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "InventoryComponent.h"
 #include "TensionComponent.h"
 
@@ -11,6 +13,15 @@ ABreatheCharacter::ABreatheCharacter()
 {
     PrimaryActorTick.bCanEverTick = true;
     bReplicates = true;
+    CameraBoom = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraBoom"));
+    CameraBoom->SetupAttachment(RootComponent);
+    CameraBoom->TargetArmLength = 360.0f;
+    CameraBoom->bUsePawnControlRotation = true;
+
+    FollowCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("FollowCamera"));
+    FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName);
+    FollowCamera->bUsePawnControlRotation = false;
+
     BreathingComponent = CreateDefaultSubobject<UBreathingComponent>(TEXT("BreathingComponent"));
     InventoryComponent = CreateDefaultSubobject<UInventoryComponent>(TEXT("InventoryComponent"));
     TensionComponent = CreateDefaultSubobject<UTensionComponent>(TEXT("TensionComponent"));

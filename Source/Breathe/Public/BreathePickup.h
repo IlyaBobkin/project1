@@ -4,6 +4,7 @@
 #include "GameFramework/Actor.h"
 #include "BreathePickup.generated.h"
 
+class UStaticMeshComponent;
 class USphereComponent;
 
 UCLASS()
@@ -22,6 +23,9 @@ public:
 protected:
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe|Pickup")
     TObjectPtr<USphereComponent> InteractionSphere;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe|Pickup")
+    TObjectPtr<UStaticMeshComponent> PickupMesh;
 
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Breathe|Pickup")
     FName ItemId = TEXT("OxygenTank");

@@ -4,6 +4,8 @@
 #include "GameFramework/Actor.h"
 #include "BreatheEscapeDoor.generated.h"
 
+class UStaticMeshComponent;
+
 UCLASS()
 class BREATHE_API ABreatheEscapeDoor : public AActor
 {
@@ -18,6 +20,9 @@ public:
     bool TryOpen(APawn* InstigatorPawn);
 
 protected:
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe|Door")
+    TObjectPtr<UStaticMeshComponent> DoorMesh;
+
     UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Breathe|Door")
     FName RequiredItemId = TEXT("RopeMarker");
 

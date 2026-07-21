@@ -11,10 +11,11 @@
 - Character class that composes breathing, inventory, and tension components, binds Enhanced Input actions, and routes item pickup/breath actions through server RPCs.
 - Prototype pickup, whisper trigger, and escape-door actors for the first cave loop.
 - Initial configuration for a four-player cooperative session.
+- Runtime prototype cave GameMode: press Play in any empty map to spawn a greybox cave, lights, oxygen pickup, whisper trigger, exit door, and the Breathe character camera.
 
 ## Prototype roadmap
 
-1. Build a single cave test map with one oxygen pickup, one whisper trigger, and one escape door.
+1. Press Play in the startup/open map to validate the generated greybox cave with one oxygen pickup, one whisper trigger, and one escape door.
 2. Create Blueprint input assets and assign them to `ABreatheCharacter` for walk, run, hold breath, interact, and synchronize breathing.
 3. Add UMG widgets for oxygen, breath rhythm, panic, hold-breath state, and sync-window feedback.
 4. Layer breathing animations on the upper body with `Layered Blend Per Bone`.

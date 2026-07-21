@@ -5,9 +5,11 @@
 #include "BreatheCharacter.generated.h"
 
 class UBreathingComponent;
+class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
 class UInventoryComponent;
+class USpringArmComponent;
 class UTensionComponent;
 struct FInputActionValue;
 
@@ -22,6 +24,12 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     virtual void BeginPlay() override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe|Camera")
+    TObjectPtr<USpringArmComponent> CameraBoom;
+
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe|Camera")
+    TObjectPtr<UCameraComponent> FollowCamera;
 
     UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Breathe")
     TObjectPtr<UBreathingComponent> BreathingComponent;
