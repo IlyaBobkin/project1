@@ -8,14 +8,15 @@
 - Replicated breathing component that tracks movement state, breath phase, and oxygen consumption.
 - Replicated inventory component for stackable cave resources such as oxygen tanks and batteries.
 - Replicated tension component for panic, whispers, UI distortion, and camera/audio feedback.
-- Character class that composes breathing, inventory, and tension components and routes item pickup through a server RPC.
+- Character class that composes breathing, inventory, and tension components, binds Enhanced Input actions, and routes item pickup/breath actions through server RPCs.
+- Prototype pickup, whisper trigger, and escape-door actors for the first cave loop.
 - Initial configuration for a four-player cooperative session.
 
 ## Prototype roadmap
 
 1. Build a single cave test map with one oxygen pickup, one whisper trigger, and one escape door.
-2. Bind Enhanced Input actions for walk, run, hold breath, interact, and synchronize breathing.
-3. Add UMG widgets for oxygen, breath rhythm, and panic.
+2. Create Blueprint input assets and assign them to `ABreatheCharacter` for walk, run, hold breath, interact, and synchronize breathing.
+3. Add UMG widgets for oxygen, breath rhythm, panic, hold-breath state, and sync-window feedback.
 4. Layer breathing animations on the upper body with `Layered Blend Per Bone`.
 5. Validate replication with a listen server and three clients before expanding zones.
 
